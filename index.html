@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+    <h1>Contador</h1>
+
+    <button @click="minus">-</button>
+    <span>{{number}}</span>
+    <button @click="plus()">+</button>
+</div>
+
+<script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+        setup() {
+            const number = ref(0);
+        
+            const plus = () => {
+                number.value++;
+            }
+
+            const minus = () => {
+                number.value--;
+            }
+
+            return { number, plus, minus };
+        }
+    }).mount('#app')
+</script>
